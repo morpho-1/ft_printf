@@ -30,7 +30,7 @@ OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) ft_printf.h
 	ar rc $(NAME) $(OBJS)
 
 clean :
