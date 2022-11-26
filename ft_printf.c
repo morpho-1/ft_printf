@@ -25,7 +25,7 @@ static int	ft_check_is_format(char c)
 
 static int	ft_put_format(va_list args, char c)
 {
-	int	len;
+	int		len;
 
 	len = 0;
 	if (c == 'd' || c == 'i')
@@ -47,9 +47,9 @@ static int	ft_put_format(va_list args, char c)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	int		len;
-	int		i;
+	va_list			args;
+	int			len;
+	int			i;
 
 	i = 0;
 	len = 0;
