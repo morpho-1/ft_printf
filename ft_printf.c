@@ -42,6 +42,8 @@ static int	ft_put_format(va_list args, char c)
 		len += ft_putptr(va_arg(args, unsigned long));
 	else if (c == '%')
 		len += ft_putchar('%');
+	else
+		len += ft_putchar(c);
 	return (len);
 }
 
@@ -58,17 +60,14 @@ int	ft_printf(const char *format, ...)
 	{
 		if (write(1, 0, 0) == -1)
 			return (-1);
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1])
 		{
-			i++;
-			if (ft_check_is_format(format[i]))
-				len += ft_put_format(args, format[i]);
-			else
-				len += ft_putchar(format[i]);
+			len += ft_put_format(args, format[i + 1]);
 			i++;
 		}
-		else
-			len += ft_putchar(format[i++]);
+		else if (format[i] != '%')
+			len += ft_putchar(format[i]);
+		i++;
 	}
 	return (va_end(args), len);
 }
