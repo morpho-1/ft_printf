@@ -14,15 +14,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-static int	ft_check_is_format(char c)
-{
-	if (c == 'd' || c == 'i' || c == 's' || c == 'x' || c == 'p')
-		return (1);
-	else if (c == 'c' || c == 'X' || c == 'u' || c == '%')
-		return (1);
-	return (0);
-}
-
 static int	ft_put_format(va_list args, char c)
 {
 	int		len;
